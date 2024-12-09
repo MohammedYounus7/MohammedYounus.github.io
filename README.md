@@ -92,6 +92,7 @@
 <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:Yusufyounus786@icloud.com">Yusufyounus786@icloud.com</a></p>
+     <p>Phone:07895515945
 </section>
 
 <footer>
