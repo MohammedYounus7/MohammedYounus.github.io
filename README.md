@@ -1,40 +1,41 @@
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 0;
-    }
-    header {
-        background-color: #333;
-        color: white;
-        padding: 10px;
-        text-align: center;
-    }
-    header nav ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    header nav ul li {
-        display: inline;
-        margin-right: 20px;
-    }
-    header nav ul li a {
-        color: white;
-        text-decoration: none;
-    }
-    section {
-        margin: 20px;
-        padding: 20px;
-        background-color: white;
-    }
-    footer {
-        text-align: center;
-        padding: 10px;
-        background-color: #333;
-        color: white;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Younus' Portfolio</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Portfolio!</h1>
+        <nav>
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="projects">
+        <h2>My Projects</h2>
+        <ul>
+            <li><a href="https://github.com/yourusername/Password-Checker">Python Password Checker</a></li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I'm Mohammed Younus, a Level 2 IT student passionate about programming!</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: Yusufyounus786@icloud.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mohammed Younus</p>
+    </footer>
+</body>
+</html>
