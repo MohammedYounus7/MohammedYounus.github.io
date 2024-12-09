@@ -83,6 +83,13 @@
             background-color: #333;
             color: white;
         }
+        pre {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            overflow: auto;
+        }
     </style>
 </head>
 <body>
@@ -124,6 +131,38 @@
     </form>
     <p id="result"></p>
     <p id="attempts"></p>
+    
+    <h3>Python Code for Password Checker:</h3>
+    <pre>
+# Python Password Checker with Multiple Attempts and Watermark Text
+def check_password_length(password):
+    if len(password) < 8:
+        return False
+    return True
+
+def password_checker():
+    watermark = "Mohammed Younus"  # Watermark text
+    attempts = 3  # Number of attempts allowed
+    print(f"\n{'*' * 40}\n{watermark}\n{'*' * 40}\n")  # Display watermark at the top
+    
+    while attempts > 0:
+        password = input("Enter your password (at least 8 characters): ")
+        if check_password_length(password):
+            print("Password accepted!")
+            break
+        else:
+            attempts -= 1
+            if attempts > 0:
+                print(f"Password too short! You have {attempts} attempts left.")
+            else:
+                print("You have run out of attempts. Please try again later.")
+                break
+
+    print(f"\n{'*' * 40}\n{watermark}\n{'*' * 40}\n")  # Display watermark at the bottom
+
+# Call the password checker
+password_checker()
+    </pre>
 </section>
 
 <section id="contact">
@@ -167,3 +206,4 @@
 
 </body>
 </html>
+
