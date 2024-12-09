@@ -60,35 +60,13 @@
             text-decoration: none;
             font-weight: bold;
         }
-        .watermark {
-            text-align: center;
-            font-size: 24px;
-            color: #888;
-            font-weight: bold;
-        }
-        #password-checker {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-        input[type="password"], input[type="submit"] {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        input[type="submit"]:hover {
-            background-color: #333;
-            color: white;
-        }
         pre {
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
             padding: 15px;
             border-radius: 5px;
             border: 1px solid #ddd;
-            overflow: auto;
+            font-size: 14px;
+            overflow-x: auto;
         }
     </style>
 </head>
@@ -101,67 +79,92 @@
             <li><a href="#about">About Me</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#password-checker">Password Checker</a></li>
         </ul>
     </nav>
 </header>
 
 <section id="about">
     <h2>About Me</h2>
-    <p>Hi, I'm Mohammed Younus, a passionate IT student currently learning programming languages like Python and Java. I'm an aspiring developer and love building projects to improve my skills. This portfolio showcases my work and projects so far. I'm 18 years old and a Level 2 IT student at Harrow College. I enjoy coding and am always looking for opportunities to learn and grow in the tech industry.</p>
+    <p>Hi, I'm Mohammed Younus, a passionate IT student currently learning programming languages like Python and Java. I'm 18 years old and studying Level 2 IT at Harrow College. I enjoy coding and love building projects to improve my skills. This portfolio showcases my work and projects so far. I'm always looking for opportunities to learn and grow in the tech industry.</p>
 </section>
 
 <section id="projects">
     <h2>Projects</h2>
     <ul class="projects-list">
-        <li><a href="https://github.com/yourusername/Password-Checker" target="_blank">Python Password Checker</a> - A Python script that checks the strength of a password.</li>
-        <li><a href="https://github.com/yourusername/AnotherProject" target="_blank">Project Name</a> - A brief description of another project you have worked on.</li>
-        <li><a href="https://github.com/yourusername/ProjectTitle" target="_blank">Project Name</a> - Short description of a third project you want to highlight.</li>
+        <li><a href="https://github.com/yourusername/Password-Checker" target="_blank">Python Password Checker</a> - A Python script that checks the strength of a password and limits the number of attempts.</li>
+        <li><a href="https://github.com/yourusername/Expense-Tracker" target="_blank">Expense Tracker</a> - A Python application that allows users to input and manage their expenses, providing a summary and total spending.</li>
     </ul>
-</section>
 
-<section id="password-checker">
-    <div class="watermark">Mohammed Younus</div>
-    <h2>Password Checker</h2>
-    <p>Enter a password (at least 8 characters) to check its validity. You have 3 attempts:</p>
-    <form id="passwordForm">
-        <label for="password">Password: </label>
-        <input type="password" id="password" placeholder="Enter your password" required><br><br>
-        <input type="submit" value="Submit">
-    </form>
-    <p id="result"></p>
-    <p id="attempts"></p>
-    
-    <h3>Python Code for Password Checker:</h3>
+    <!-- Embedded Code for Expense Tracker -->
+    <h3>Expense Tracker Code</h3>
     <pre>
-# Python Password Checker with Multiple Attempts and Watermark Text
-def check_password_length(password):
-    if len(password) < 8:
-        return False
-    return True
+import json
 
-def password_checker():
-    watermark = "Mohammed Younus"  # Watermark text
-    attempts = 3  # Number of attempts allowed
-    print(f"\n{'*' * 40}\n{watermark}\n{'*' * 40}\n")  # Display watermark at the top
-    
-    while attempts > 0:
-        password = input("Enter your password (at least 8 characters): ")
-        if check_password_length(password):
-            print("Password accepted!")
+class ExpenseTracker:
+    def __init__(self):
+        self.expenses = []
+        self.load_expenses()
+
+    def load_expenses(self):
+        try:
+            with open('expenses.json', 'r') as f:
+                self.expenses = json.load(f)
+        except FileNotFoundError:
+            self.expenses = []
+
+    def save_expenses(self):
+        with open('expenses.json', 'w') as f:
+            json.dump(self.expenses, f)
+
+    def add_expense(self, amount, category, description):
+        expense = {'amount': amount, 'category': category, 'description': description}
+        self.expenses.append(expense)
+        self.save_expenses()
+        print(f"Added expense: {amount} in {category} - {description}")
+
+    def show_expenses(self):
+        print("\nExpense Summary:")
+        for idx, expense in enumerate(self.expenses, 1):
+            print(f"{idx}. {expense['amount']} in {expense['category']} - {expense['description']}")
+
+    def total_expenses(self):
+        total = sum(expense['amount'] for expense in self.expenses)
+        print(f"\nTotal Expenses: {total}")
+
+def print_watermark():
+    watermark = "Mohammed Younus"
+    print(f"\n{'*' * 40}\n{watermark}\n{'*' * 40}\n")
+
+tracker = ExpenseTracker()
+
+def start_expense_tracker():
+    print_watermark()
+    print("Welcome to the Expense Tracker!")
+    while True:
+        print("\nOptions:")
+        print("1. Add Expense")
+        print("2. Show Expenses")
+        print("3. Total Expenses")
+        print("4. Exit")
+        choice = input("Choose an option (1-4): ")
+
+        if choice == "1":
+            amount = float(input("Enter the expense amount: "))
+            category = input("Enter the expense category (e.g., Food, Travel): ")
+            description = input("Enter a brief description of the expense: ")
+            tracker.add_expense(amount, category, description)
+        elif choice == "2":
+            tracker.show_expenses()
+        elif choice == "3":
+            tracker.total_expenses()
+        elif choice == "4":
+            print("Exiting Expense Tracker.")
             break
         else:
-            attempts -= 1
-            if attempts > 0:
-                print(f"Password too short! You have {attempts} attempts left.")
-            else:
-                print("You have run out of attempts. Please try again later.")
-                break
+            print("Invalid choice. Please try again.")
+    print_watermark()
 
-    print(f"\n{'*' * 40}\n{watermark}\n{'*' * 40}\n")  # Display watermark at the bottom
-
-# Call the password checker
-password_checker()
+start_expense_tracker()
     </pre>
 </section>
 
@@ -173,36 +176,6 @@ password_checker()
 <footer>
     <p>&copy; 2024 Mohammed Younus</p>
 </footer>
-
-<script>
-    let attemptsLeft = 3;  // Number of attempts allowed
-
-    // Handle form submission
-    document.getElementById('passwordForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form from reloading the page
-        
-        const password = document.getElementById('password').value;
-        const resultElement = document.getElementById('result');
-        const attemptsElement = document.getElementById('attempts');
-
-        // Check password length
-        if (password.length >= 8) {
-            resultElement.textContent = "Password accepted!";
-            resultElement.style.color = "green";
-        } else {
-            attemptsLeft--;
-            if (attemptsLeft > 0) {
-                resultElement.textContent = "Password too short! Try again.";
-                resultElement.style.color = "red";
-                attemptsElement.textContent = `You have ${attemptsLeft} attempts left.`;
-            } else {
-                resultElement.textContent = "You have run out of attempts. Please try again later.";
-                resultElement.style.color = "red";
-                attemptsElement.textContent = "";
-            }
-        }
-    });
-</script>
 
 </body>
 </html>
