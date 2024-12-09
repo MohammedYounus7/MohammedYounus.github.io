@@ -175,7 +175,10 @@ def display_tasks():
 <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:Yusufyounus786@icloud.com">Yusufyounus786@icloud.com</a></p>
+    <p>Phone: <a href="tel:+447895515945">07895515945</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/mohammedyusufyounus/" target="_blank">Mohammed Younus LinkedIn Profile</a></p>
 </section>
+
 
 <footer>
     <p>&copy; 2024 Mohammed Younus</p>
