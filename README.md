@@ -67,6 +67,7 @@
             border: 1px solid #ddd;
             font-size: 14px;
             overflow-x: auto;
+            white-space: pre-wrap; /* Ensures long lines wrap */
         }
         #password-checker-output, #expense-tracker-output, #expense-tracker-total, #to-do-list-output {
             margin-top: 10px;
@@ -146,6 +147,11 @@ total = 0
 # To-Do List App by Mohammed Younus
 to_do_list = []
     </pre>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:Yusufyounus786@icloud.com">Yusufyounus786@icloud.com</a></p>
 </section>
 
 <footer>
