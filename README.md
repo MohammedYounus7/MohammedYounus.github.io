@@ -83,7 +83,7 @@
 <section id="projects">
     <h2>Projects</h2>
     <ul class="projects-list">
-        <li><a href="https://github.com/yourusername/Password-Checker" target="_blank">Python Password Checker</a> - A Python script that checks the strength of a password.</li>
+        <li><a  target="_blank">Python Password Checker</a> - A Python script that checks the strength of a password.</li>
         <li><a href="https://github.com/yourusername/AnotherProject" target="_blank">Project Name</a> - A brief description of another project you have worked on.</li>
         <li><a href="https://github.com/yourusername/ProjectTitle" target="_blank">Project Name</a> - Short description of a third project you want to highlight.</li>
     </ul>
