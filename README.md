@@ -68,6 +68,16 @@
             font-size: 14px;
             overflow-x: auto;
         }
+        #password-checker-output {
+            margin-top: 10px;
+            font-weight: bold;
+            color: green;
+        }
+        #password-checker-fail {
+            margin-top: 10px;
+            font-weight: bold;
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -98,10 +108,16 @@
     <!-- Password Checker Section -->
     <section id="password-checker">
         <h3>Python Password Checker</h3>
-        <p>This project allows users to input a password and check if it's long enough (at least 8 characters). The user has a limited number of attempts to enter a valid password.</p>
-        <pre>
-import re
+        <p>Enter a password below to check if it's at least 8 characters long (you have 3 attempts). The password checker will give you feedback based on your input:</p>
+        
+        <input type="text" id="password-input" placeholder="Enter your password">
+        <button onclick="checkPassword()">Check Password</button>
+        
+        <div id="password-checker-output"></div>
+        <div id="password-checker-fail"></div>
 
+        <h4>Python Code for Password Checker</h4>
+        <pre>
 def check_password_length(password):
     if len(password) < 8:
         return False
@@ -126,8 +142,6 @@ def password_checker():
                 break
 
     print(f"\n{'*' * 40}\n{watermark}\n{'*' * 40}\n")  # Display watermark at the bottom
-
-password_checker()
         </pre>
     </section>
 
@@ -216,6 +230,32 @@ start_expense_tracker()
 <footer>
     <p>&copy; 2024 Mohammed Younus</p>
 </footer>
+
+<script>
+// Function to handle password checking
+let attempts = 3;
+
+function checkPassword() {
+    const password = document.getElementById('password-input').value;
+    const output = document.getElementById('password-checker-output');
+    const fail = document.getElementById('password-checker-fail');
+
+    if (password.length >= 8) {
+        output.innerText = "Password accepted!";
+        fail.innerText = "";
+        attempts = 3; // Reset attempts on successful entry
+    } else {
+        attempts--;
+        fail.innerText = `Password too short! You have ${attempts} attempts left.`;
+        output.innerText = "";
+    }
+
+    if (attempts === 0) {
+        fail.innerText = "You have run out of attempts. Please try again later.";
+        document.getElementById('password-input').disabled = true; // Disable input after 3 attempts
+    }
+}
+</script>
 
 </body>
 </html>
