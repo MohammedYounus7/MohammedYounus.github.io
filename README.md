@@ -77,7 +77,7 @@
 
 <section id="about">
     <h2>About Me</h2>
-    <p>Hi, I'm Mohammed Younus, a passionate IT student currently learning programming languages like Python and Java. I'm an aspiring developer and love building projects to improve my skills. This portfolio showcases my work and projects so far. I'm always looking for opportunities to learn and grow in the tech industry.</p>
+    <p>Hi, I'm Mohammed Younus, an 18-year-old Level 2 IT student at Harrow College. I'm passionate about programming and currently learning languages like Python and Java. As an aspiring developer, I truly enjoy coding and building projects to improve my skills. This portfolio showcases my work and projects so far, and I am always looking for opportunities to learn and grow in the tech industry. </p>
 </section>
 
 <section id="projects">
