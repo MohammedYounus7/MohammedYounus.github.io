@@ -91,13 +91,51 @@
 <section id="projects">
     <h2>Projects</h2>
     <ul class="projects-list">
-        <li><a href="https://github.com/yourusername/Password-Checker" target="_blank">Python Password Checker</a> - A Python script that checks the strength of a password and limits the number of attempts.</li>
-        <li><a href="https://github.com/yourusername/Expense-Tracker" target="_blank">Expense Tracker</a> - A Python application that allows users to input and manage their expenses, providing a summary and total spending.</li>
+        <li><a href="#password-checker">Python Password Checker</a> - A Python script that checks the strength of a password and limits the number of attempts.</li>
+        <li><a href="#expense-tracker">Expense Tracker</a> - A Python application that allows users to input and manage their expenses, providing a summary and total spending.</li>
     </ul>
 
-    <!-- Embedded Code for Expense Tracker -->
-    <h3>Expense Tracker Code</h3>
-    <pre>
+    <!-- Password Checker Section -->
+    <section id="password-checker">
+        <h3>Python Password Checker</h3>
+        <p>This project allows users to input a password and check if it's long enough (at least 8 characters). The user has a limited number of attempts to enter a valid password.</p>
+        <pre>
+import re
+
+def check_password_length(password):
+    if len(password) < 8:
+        return False
+    return True
+
+def password_checker():
+    watermark = "Mohammed Younus"  # Watermark text
+    attempts = 3  # Number of attempts allowed
+    print(f"\n{'*' * 40}\n{watermark}\n{'*' * 40}\n")  # Display watermark at the top
+    
+    while attempts > 0:
+        password = input("Enter your password (at least 8 characters): ")
+        if check_password_length(password):
+            print("Password accepted!")
+            break
+        else:
+            attempts -= 1
+            if attempts > 0:
+                print(f"Password too short! You have {attempts} attempts left.")
+            else:
+                print("You have run out of attempts. Please try again later.")
+                break
+
+    print(f"\n{'*' * 40}\n{watermark}\n{'*' * 40}\n")  # Display watermark at the bottom
+
+password_checker()
+        </pre>
+    </section>
+
+    <!-- Expense Tracker Section -->
+    <section id="expense-tracker">
+        <h3>Expense Tracker</h3>
+        <p>This project allows users to input and track their expenses. The total spending is calculated, and the user can view all of their expenses with categories and descriptions.</p>
+        <pre>
 import json
 
 class ExpenseTracker:
@@ -165,7 +203,9 @@ def start_expense_tracker():
     print_watermark()
 
 start_expense_tracker()
-    </pre>
+        </pre>
+    </section>
+
 </section>
 
 <section id="contact">
@@ -179,4 +219,3 @@ start_expense_tracker()
 
 </body>
 </html>
-
