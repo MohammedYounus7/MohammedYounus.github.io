@@ -68,12 +68,11 @@
             font-size: 14px;
             overflow-x: auto;
         }
-        #password-checker-output {
+        #password-checker-output, #expense-tracker-output, #expense-tracker-total {
             margin-top: 10px;
             font-weight: bold;
-            color: green;
         }
-        #password-checker-fail {
+        #password-checker-fail, #expense-tracker-fail {
             margin-top: 10px;
             font-weight: bold;
             color: red;
@@ -148,75 +147,41 @@ def password_checker():
     <!-- Expense Tracker Section -->
     <section id="expense-tracker">
         <h3>Expense Tracker</h3>
-        <p>This project allows users to input and track their expenses. The total spending is calculated, and the user can view all of their expenses with categories and descriptions.</p>
+        <p>Track your expenses by entering the amount, category, and description. The total expenses will be calculated and displayed below.</p>
+        
+        <input type="number" id="expense-amount" placeholder="Amount" step="0.01">
+        <input type="text" id="expense-category" placeholder="Category">
+        <input type="text" id="expense-description" placeholder="Description">
+        <button onclick="addExpense()">Add Expense</button>
+
+        <div id="expense-tracker-output"></div>
+        <div id="expense-tracker-total"></div>
+        <div id="expense-tracker-fail"></div>
+
+        <h4>Python Code for Expense Tracker</h4>
         <pre>
 import json
 
 class ExpenseTracker:
     def __init__(self):
         self.expenses = []
-        self.load_expenses()
-
-    def load_expenses(self):
-        try:
-            with open('expenses.json', 'r') as f:
-                self.expenses = json.load(f)
-        except FileNotFoundError:
-            self.expenses = []
-
-    def save_expenses(self):
-        with open('expenses.json', 'w') as f:
-            json.dump(self.expenses, f)
 
     def add_expense(self, amount, category, description):
         expense = {'amount': amount, 'category': category, 'description': description}
-        self.expenses.append(expense)
-        self.save_expenses()
-        print(f"Added expense: {amount} in {category} - {description}")
+        self.expenses.push(expense)
 
-    def show_expenses(self):
-        print("\nExpense Summary:")
-        for idx, expense in enumerate(self.expenses, 1):
-            print(f"{idx}. {expense['amount']} in {expense['category']} - {expense['description']}")
-
-    def total_expenses(self):
+    def get_total(self):
         total = sum(expense['amount'] for expense in self.expenses)
-        print(f"\nTotal Expenses: {total}")
+        return total
 
-def print_watermark():
-    watermark = "Mohammed Younus"
-    print(f"\n{'*' * 40}\n{watermark}\n{'*' * 40}\n")
+def add_expense(amount, category, description):
+    tracker.add_expense(amount, category, description)
+    display_expenses()
 
-tracker = ExpenseTracker()
-
-def start_expense_tracker():
-    print_watermark()
-    print("Welcome to the Expense Tracker!")
-    while True:
-        print("\nOptions:")
-        print("1. Add Expense")
-        print("2. Show Expenses")
-        print("3. Total Expenses")
-        print("4. Exit")
-        choice = input("Choose an option (1-4): ")
-
-        if choice == "1":
-            amount = float(input("Enter the expense amount: "))
-            category = input("Enter the expense category (e.g., Food, Travel): ")
-            description = input("Enter a brief description of the expense: ")
-            tracker.add_expense(amount, category, description)
-        elif choice == "2":
-            tracker.show_expenses()
-        elif choice == "3":
-            tracker.total_expenses()
-        elif choice == "4":
-            print("Exiting Expense Tracker.")
-            break
-        else:
-            print("Invalid choice. Please try again.")
-    print_watermark()
-
-start_expense_tracker()
+def display_expenses():
+    total = tracker.get_total()
+    document.getElementById('expense-tracker-output').innerText = "Expenses Added Successfully"
+    document.getElementById('expense-tracker-total').innerText = "Total Expenses: " + total
         </pre>
     </section>
 
@@ -232,7 +197,7 @@ start_expense_tracker()
 </footer>
 
 <script>
-// Function to handle password checking
+// Password Checker Functionality
 let attempts = 3;
 
 function checkPassword() {
@@ -255,7 +220,35 @@ function checkPassword() {
         document.getElementById('password-input').disabled = true; // Disable input after 3 attempts
     }
 }
+
+// Expense Tracker Functionality
+let expenses = [];
+
+function addExpense() {
+    const amount = parseFloat(document.getElementById('expense-amount').value);
+    const category = document.getElementById('expense-category').value;
+    const description = document.getElementById('expense-description').value;
+    
+    const fail = document.getElementById('expense-tracker-fail');
+    const output = document.getElementById('expense-tracker-output');
+    const totalOutput = document.getElementById('expense-tracker-total');
+
+    if (amount && category && description) {
+        expenses.push({amount, category, description});
+        output.innerText = `Expense of ${amount} in category '${category}' added successfully.`;
+        
+        // Calculate total expenses
+        let total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+        totalOutput.innerText = `Total Expenses: ${total.toFixed(2)}`;
+        fail.innerText = "";
+    } else {
+        fail.innerText = "Please fill in all fields correctly.";
+        output.innerText = "";
+        totalOutput.innerText = "";
+    }
+}
 </script>
 
 </body>
 </html>
+
