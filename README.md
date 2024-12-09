@@ -68,7 +68,7 @@
             font-size: 14px;
             overflow-x: auto;
         }
-        #to-do-list-output, #task-status {
+        #password-checker-output, #expense-tracker-output, #expense-tracker-total, #to-do-list-output {
             margin-top: 10px;
             font-weight: bold;
         }
@@ -103,17 +103,34 @@
 
 <section id="password-checker">
     <h3>Python Password Checker</h3>
+    <form id="password-form">
+        <label for="password-input">Enter Password:</label>
+        <input type="password" id="password-input" required>
+        <button type="button" onclick="checkPassword()">Check Password</button>
+    </form>
+    <div id="password-checker-output"></div>
     <pre>
 # Python Password Checker by Mohammed Younus
-# Full code omitted for brevity.
+def check_password_length(password):
+    return len(password) >= 8
     </pre>
 </section>
 
 <section id="expense-tracker">
     <h3>Expense Tracker</h3>
+    <form id="expense-form">
+        <label for="expense-name">Expense Name:</label>
+        <input type="text" id="expense-name" required>
+        <label for="expense-amount">Amount:</label>
+        <input type="number" id="expense-amount" required>
+        <button type="button" onclick="addExpense()">Add Expense</button>
+    </form>
+    <div id="expense-tracker-output"></div>
+    <div id="expense-tracker-total"></div>
     <pre>
 # Expense Tracker by Mohammed Younus
-# Full code omitted for brevity.
+expenses = []
+total = 0
     </pre>
 </section>
 
@@ -125,10 +142,9 @@
         <button type="button" onclick="addTask()">Add Task</button>
     </form>
     <div id="to-do-list-output"></div>
-    <div id="task-status"></div>
     <pre>
-# Python Code for To-Do List App
-# Full code displayed here.
+# To-Do List App by Mohammed Younus
+to_do_list = []
     </pre>
 </section>
 
@@ -137,26 +153,50 @@
 </footer>
 
 <script>
-    const toDoList = [];
-    
-    function addTask() {
-        const taskInput = document.getElementById("task-input");
-        const task = taskInput.value;
-        if (task) {
-            toDoList.push({ task: task, completed: false });
-            taskInput.value = "";
-            displayTasks();
+    // Password Checker Script
+    function checkPassword() {
+        const password = document.getElementById("password-input").value;
+        const output = document.getElementById("password-checker-output");
+        if (password.length >= 8) {
+            output.textContent = "Password accepted!";
+        } else {
+            output.textContent = "Password too short!";
         }
     }
 
+    // Expense Tracker Script
+    let expenses = [];
+    function addExpense() {
+        const name = document.getElementById("expense-name").value;
+        const amount = parseFloat(document.getElementById("expense-amount").value);
+        if (name && amount > 0) {
+            expenses.push({ name, amount });
+            displayExpenses();
+        }
+    }
+    function displayExpenses() {
+        const output = document.getElementById("expense-tracker-output");
+        const totalDisplay = document.getElementById("expense-tracker-total");
+        output.innerHTML = expenses.map(exp => `${exp.name}: £${exp.amount.toFixed(2)}`).join("<br>");
+        const total = expenses.reduce((sum, exp) => sum + exp.amount, 0);
+        totalDisplay.textContent = `Total: £${total.toFixed(2)}`;
+    }
+
+    // To-Do List Script
+    const toDoList = [];
+    function addTask() {
+        const taskInput = document.getElementById("task-input").value;
+        if (taskInput) {
+            toDoList.push(taskInput);
+            displayTasks();
+        }
+    }
     function displayTasks() {
         const output = document.getElementById("to-do-list-output");
         if (toDoList.length === 0) {
-            output.innerHTML = "Your to-do list is empty!";
+            output.innerHTML = "No tasks available.";
         } else {
-            output.innerHTML = toDoList.map((item, index) => {
-                return `${index + 1}. ${item.completed ? "[✔]" : "[ ]"} ${item.task}`;
-            }).join("<br>");
+            output.innerHTML = toDoList.map((task, index) => `${index + 1}. ${task}`).join("<br>");
         }
     }
 </script>
