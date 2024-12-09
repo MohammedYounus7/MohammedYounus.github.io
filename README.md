@@ -114,6 +114,17 @@
 # Python Password Checker by Mohammed Younus
 def check_password_length(password):
     return len(password) >= 8
+
+def password_checker():
+    attempts = 3
+    while attempts > 0:
+        password = input("Enter your password (at least 8 characters): ")
+        if check_password_length(password):
+            print("Password accepted!")
+            break
+        else:
+            attempts -= 1
+            print(f"Password too short! {attempts} attempts left.")
     </pre>
 </section>
 
@@ -131,7 +142,12 @@ def check_password_length(password):
     <pre>
 # Expense Tracker by Mohammed Younus
 expenses = []
-total = 0
+
+def add_expense(name, amount):
+    expenses.append({"name": name, "amount": amount})
+
+def calculate_total():
+    return sum(exp["amount"] for exp in expenses)
     </pre>
 </section>
 
@@ -145,7 +161,14 @@ total = 0
     <div id="to-do-list-output"></div>
     <pre>
 # To-Do List App by Mohammed Younus
-to_do_list = []
+tasks = []
+
+def add_task(task):
+    tasks.append(task)
+
+def display_tasks():
+    for i, task in enumerate(tasks, start=1):
+        print(f"{i}. {task}")
     </pre>
 </section>
 
@@ -209,3 +232,4 @@ to_do_list = []
 
 </body>
 </html>
+
