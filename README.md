@@ -10,7 +10,7 @@
         /* Global Styles */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f9f9fb;
+            background-color: #f4f7fc;
             color: #333;
             margin: 0;
             padding: 0;
@@ -60,7 +60,7 @@
             margin: 20px auto;
             padding: 20px;
             max-width: 800px;
-            background: white;
+            background: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
@@ -85,7 +85,7 @@
         }
 
         .projects-list li {
-            background: #f4f4f9;
+            background: #f9f9f9;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -277,3 +277,4 @@
 
 </body>
 </html>
+
