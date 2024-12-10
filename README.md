@@ -10,7 +10,7 @@
         /* Global Styles */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f7f7f7; /* Very light gray for the background */
+            background-color: #E0F2F1; /* Light teal background */
             color: #333333; /* Dark gray text color */
             margin: 0;
             padding: 0;
@@ -19,7 +19,7 @@
 
         /* Header Styles */
         header {
-            background-color: #8B4513; /* Brown background for the header */
+            background-color: #2F4F4F; /* Dark Slate Blue background */
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -52,7 +52,7 @@
         }
 
         header nav ul li a:hover {
-            color: #2E8B57; /* Green color on hover */
+            color: #00BFAE; /* Light teal color on hover */
         }
 
         /* Section Styles */
@@ -60,14 +60,14 @@
             margin: 20px auto;
             padding: 20px;
             max-width: 800px;
-            background: #f4f4f4; /* Light grey background */
+            background: #FFFFFF; /* White background */
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
         }
 
         section h2, section h3 {
-            color: #8B4513; /* Brown color for titles */
+            color: #2F4F4F; /* Dark Slate Blue for headers */
             margin-bottom: 20px;
         }
 
@@ -99,7 +99,7 @@
         }
 
         .projects-list li a {
-            color: #2E8B57; /* Green color for links */
+            color: #00BFAE; /* Light teal color for links */
             text-decoration: none;
             font-weight: 600;
         }
@@ -110,7 +110,7 @@
 
         /* Button Styles */
         button {
-            background-color: #2E8B57; /* Green button */
+            background-color: #00BFAE; /* Light teal button */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -121,14 +121,14 @@
         }
 
         button:hover {
-            background-color: #4CAF50; /* Slightly lighter green on hover */
+            background-color: #00796B; /* Darker teal button on hover */
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 20px;
-            background: #333333; /* Dark gray footer */
+            background: #2F4F4F; /* Dark Slate Blue footer */
             color: white;
         }
 
@@ -144,7 +144,19 @@
         }
 
         input:focus {
-            border-color: #2E8B57; /* Green border on focus */
+            border-color: #00BFAE; /* Green border on focus */
+        }
+
+        /* To-Do List Styles */
+        .task {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .task input {
+            margin-right: 10px;
         }
 
         /* Responsive Design */
@@ -271,15 +283,23 @@
     }
     function displayTasks() {
         const output = document.getElementById("to-do-list-output");
-        if (toDoList.length === 0) {
-            output.innerHTML = "No tasks available.";
-        } else {
-            output.innerHTML = toDoList.map((task, index) => `${index + 1}. ${task}`).join("<br>");
+        output.innerHTML = toDoList.map((task, index) => {
+            return `
+                <div class="task">
+                    <input type="checkbox" id="task-${index}" onclick="removeTask(${index})">
+                    <label for="task-${index}">${task}</label>
+                </div>
+            `;
+        }).join("");
+    }
+
+    function removeTask(index) {
+        if (document.getElementById(`task-${index}`).checked) {
+            toDoList.splice(index, 1);
+            displayTasks();
         }
     }
 </script>
 
 </body>
 </html>
-
-
