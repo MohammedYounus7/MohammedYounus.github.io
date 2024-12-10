@@ -10,8 +10,8 @@
         /* Global Styles */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f5f6f7; /* Very light gray */
-            color: #333333; /* Dark slate gray for text */
+            background-color: #f7f7f7; /* Very light gray for the background */
+            color: #333333; /* Dark gray text color */
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
@@ -19,7 +19,7 @@
 
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, #4e73df, #2a65b3); /* Soft blue gradient */
+            background-color: #8B4513; /* Brown background for the header */
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -52,7 +52,7 @@
         }
 
         header nav ul li a:hover {
-            color: #71a7f9; /* Lighter blue on hover */
+            color: #2E8B57; /* Green color on hover */
         }
 
         /* Section Styles */
@@ -60,14 +60,14 @@
             margin: 20px auto;
             padding: 20px;
             max-width: 800px;
-            background: #f4f6f9; /* Light gray background */
+            background: #f4f4f4; /* Light grey background */
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
         }
 
         section h2, section h3 {
-            color: #333333; /* Dark slate gray for titles */
+            color: #8B4513; /* Brown color for titles */
             margin-bottom: 20px;
         }
 
@@ -99,7 +99,7 @@
         }
 
         .projects-list li a {
-            color: #2575fc;
+            color: #2E8B57; /* Green color for links */
             text-decoration: none;
             font-weight: 600;
         }
@@ -110,7 +110,7 @@
 
         /* Button Styles */
         button {
-            background-color: #5c8bf0; /* Soft blue */
+            background-color: #2E8B57; /* Green button */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -121,7 +121,7 @@
         }
 
         button:hover {
-            background-color: #3b6bd4; /* Darker blue on hover */
+            background-color: #4CAF50; /* Slightly lighter green on hover */
         }
 
         /* Footer */
@@ -139,12 +139,12 @@
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #e0e0e0; /* Light gray border */
+            border: 1px solid #ddd; /* Light gray border */
             border-radius: 5px;
         }
 
         input:focus {
-            border-color: #5c8bf0; /* Soft blue on focus */
+            border-color: #2E8B57; /* Green border on focus */
         }
 
         /* Responsive Design */
@@ -281,4 +281,5 @@
 
 </body>
 </html>
+
 
