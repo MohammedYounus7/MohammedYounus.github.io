@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Younus | Coding Portfolio</title>
+    <meta name="description" content="Mohammed Younus's portfolio showcasing projects like Python apps, expense trackers, and to-do lists.">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
             margin: 0;
-            padding: 0;
+            padding: 10px;
         }
         header {
             background-color: #333;
@@ -21,39 +22,41 @@
             margin: 0;
         }
         header nav ul {
+            display: flex;
+            justify-content: center;
             list-style-type: none;
             padding: 0;
-        }
-        header nav ul li {
-            display: inline;
-            margin-right: 20px;
+            gap: 20px;
         }
         header nav ul li a {
             color: white;
             text-decoration: none;
         }
         section {
-            margin: 20px;
+            margin: 10px auto;
             padding: 20px;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
         }
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             background-color: #333;
             color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            margin-top: 20px;
         }
         .projects-list {
             list-style-type: none;
             padding: 0;
         }
         .projects-list li {
-            margin: 10px 0;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #333;
+            border-radius: 5px;
         }
         .projects-list li a {
             color: #333;
@@ -67,11 +70,25 @@
             border: 1px solid #ddd;
             font-size: 14px;
             overflow-x: auto;
-            white-space: pre-wrap; /* Ensures long lines wrap */
+            white-space: pre-wrap;
+        }
+        button {
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+            color: white;
+        }
+        button:focus {
+            outline: 2px solid #007BFF;
         }
         #password-checker-output, #expense-tracker-output, #expense-tracker-total, #to-do-list-output {
             margin-top: 10px;
             font-weight: bold;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #f4f4f4;
         }
     </style>
 </head>
@@ -134,7 +151,7 @@ def password_checker():
         <label for="expense-name">Expense Name:</label>
         <input type="text" id="expense-name" required>
         <label for="expense-amount">Amount:</label>
-        <input type="number" id="expense-amount" required>
+        <input type="number" id="expense-amount" required min="0.01">
         <button type="button" onclick="addExpense()">Add Expense</button>
     </form>
     <div id="expense-tracker-output"></div>
@@ -179,9 +196,9 @@ def display_tasks():
     <p>LinkedIn: <a href="https://www.linkedin.com/in/mohammedyusufyounus/" target="_blank">Mohammed Younus LinkedIn Profile</a></p>
 </section>
 
-
 <footer>
     <p>&copy; 2024 Mohammed Younus</p>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
 </footer>
 
 <script>
@@ -209,9 +226,16 @@ def display_tasks():
     function displayExpenses() {
         const output = document.getElementById("expense-tracker-output");
         const totalDisplay = document.getElementById("expense-tracker-total");
-        output.innerHTML = expenses.map(exp => `${exp.name}: £${exp.amount.toFixed(2)}`).join("<br>");
+        output.innerHTML = expenses.map((exp, index) => `
+            ${index + 1}. ${exp.name}: £${exp.amount.toFixed(2)}
+            <button onclick="deleteExpense(${index})">Delete</button>
+        `).join("<br>");
         const total = expenses.reduce((sum, exp) => sum + exp.amount, 0);
         totalDisplay.textContent = `Total: £${total.toFixed(2)}`;
+    }
+    function deleteExpense(index) {
+        expenses.splice(index, 1);
+        displayExpenses();
     }
 
     // To-Do List Script
@@ -225,11 +249,19 @@ def display_tasks():
     }
     function displayTasks() {
         const output = document.getElementById("to-do-list-output");
-        if (toDoList.length === 0) {
-            output.innerHTML = "No tasks available.";
-        } else {
-            output.innerHTML = toDoList.map((task, index) => `${index + 1}. ${task}`).join("<br>");
-        }
+        output.innerHTML = toDoList.map((task, index) => `
+            ${index + 1}. ${task}
+            <button onclick="deleteTask(${index})">Delete</button>
+        `).join("<br>");
+    }
+    function deleteTask(index) {
+        toDoList.splice(index, 1);
+        displayTasks();
+    }
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
     }
 </script>
 
