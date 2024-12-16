@@ -267,9 +267,9 @@
     function displayExpenses() {
         const output = document.getElementById("expense-tracker-output");
         const totalDisplay = document.getElementById("expense-tracker-total");
-        output.innerHTML = expenses.map(exp => ${exp.name}: £${exp.amount.toFixed(2)}).join("<br>");
+        output.innerHTML = expenses.map(exp => `${exp.name}: £${exp.amount.toFixed(2)}`).join("<br>");
         const total = expenses.reduce((sum, exp) => sum + exp.amount, 0);
-        totalDisplay.textContent = Total: £${total.toFixed(2)};
+        totalDisplay.textContent = `Total: £${total.toFixed(2)}`;
     }
 
     // To-Do List Script
@@ -284,22 +284,20 @@
     function displayTasks() {
         const output = document.getElementById("to-do-list-output");
         output.innerHTML = toDoList.map((task, index) => {
-            return 
+            return `
                 <div class="task">
                     <input type="checkbox" id="task-${index}" onclick="removeTask(${index})">
                     <label for="task-${index}">${task}</label>
                 </div>
-            ;
+            `;
         }).join("");
     }
 
     function removeTask(index) {
-        if (document.getElementById(task-${index}).checked) {
-            toDoList.splice(index, 1);
-            displayTasks();
-        }
+        toDoList.splice(index, 1);
+        displayTasks();
     }
 </script>
 
 </body>
-</html> 
+</html>
