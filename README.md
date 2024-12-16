@@ -208,6 +208,7 @@
             displayExpenses();
         }
     }
+
     function displayExpenses() {
         const output = document.getElementById("expense-tracker-output");
         const totalDisplay = document.getElementById("expense-tracker-total");
@@ -225,20 +226,15 @@
             displayTasks();
         }
     }
+
     function displayTasks() {
         const output = document.getElementById("to-do-list-output");
         output.innerHTML = toDoList.map((task, index) => {
             return `
                 <div class="task">
-                    <input type="checkbox" id="task-${index}" onclick="removeTask(${index})">
-                    <label for="task-${index}">${task}</label>
-                </div>
-            `;
-        }).join("");
-    }
+                    <It looks like you need a complete working version of the code with the various interactive features (weather app, expense tracker, password checker, to-do list) for your website. Below is a consolidated, fully functional version of the portfolio webpage, which should work correctly with all the interactive applications, including the weather app. Just make sure to replace `'YOUR_API_KEY'` in the weather app section with your own valid OpenWeatherMap API key.
 
-    function removeTask(index) {
-        if (document.getElementById(`task-${index}`).checked)Here is the complete updated code for your portfolio, now including the Weather Application:
+### Complete HTML, CSS, and JavaScript Code:
 
 ```html
 <!DOCTYPE html>
@@ -451,6 +447,7 @@
             displayExpenses();
         }
     }
+
     function displayExpenses() {
         const output = document.getElementById("expense-tracker-output");
         const totalDisplay = document.getElementById("expense-tracker-total");
@@ -468,6 +465,7 @@
             displayTasks();
         }
     }
+
     function displayTasks() {
         const output = document.getElementById("to-do-list-output");
         output.innerHTML = toDoList.map((task, index) => {
@@ -475,25 +473,7 @@
                 <div class="task">
                     <input type="checkbox" id="task-${index}" onclick="removeTask(${index})">
                     <label for="task-${index}">${task}</label>
-                </div>
-            `;
-        }).join("");
-    }
-
-    function removeTask(index) {
-        if (document.getElementById(`task-${index}`).checked) {
-            toDoList.splice(index, 1);
-            displayTasks();
-        }
-    }
-
-    // Weather Application Script
-    const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
-
-    function getWeather() {
-        const location =Here’s the complete updated code for your portfolio with the **Weather Application** integrated. Make sure to replace the placeholder `'YOUR_API_KEY'` with your actual API key from OpenWeatherMap.
-
-### Full HTML, CSS, and JavaScript Code:
+                </It looks like you're trying to ensure the full functionality of various web applications in your portfolio, including a weather app, password checker, expense tracker, and to-do list. Here's the complete and working HTML, CSS, and JavaScript for your portfolio webpage:
 
 ```html
 <!DOCTYPE html>
@@ -505,31 +485,25 @@
     <meta name="description" content="Mohammed Younus's portfolio showcasing projects like Python apps, expense trackers, and to-do lists.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #E0F2F1; /* Light teal background */
-            color: #333333; /* Dark gray text color */
+            background-color: #E0F2F1;
+            color: #333333;
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
         }
-
-        /* Header Styles */
         header {
-            background-color: #2F4F4F; /* Dark Slate Blue background */
+            background-color: #2F4F4F;
             color: white;
             padding: 20px 0;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
         header h1 {
             margin: 0;
             font-weight: 600;
             font-size: 2rem;
         }
-
         header nav ul {
             display: flex;
             justify-content: center;
@@ -537,68 +511,43 @@
             margin: 10px 0 0;
             padding: 0;
         }
-
         header nav ul li {
             margin: 0 15px;
         }
-
         header nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
         }
-
-        header nav ul li a:hover {
-            color: #00BFAE; /* Light teal color on hover */
-        }
-
-        /* Section Styles */
         section {
             margin: 20px auto;
             padding: 20px;
             max-width: 800px;
-            background: #FFFFFF; /* White background */
+            background: #FFFFFF;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
         }
-
         section h2, section h3 {
-            color: #2F4F4F; /* Dark Slate Blue for headers */
-            margin-bottom: 20px;
+            color: #2F4F4F;
         }
-
         section p {
             line-height: 1.6;
         }
-
-        /* Weather Section */
         #weather {
             background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
         }
-
         .weather-result {
             margin-top: 20px;
         }
-
         .weather-result p {
             font-weight: bold;
         }
-
         .weather-result span {
             font-size: 1.5rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -626,7 +575,7 @@
         <li><a href="#password-checker">Python Password Checker</a></li>
         <li><a href="#expense-tracker">Expense Tracker</a></li>
         <li><a href="#to-do-list">To-Do List App</a></li>
-        <li><a href="#weather">Weather Application</a></li> <!-- Link to Weather Project -->
+        <li><a href="#weather">Weather Application</a></li>
     </ul>
 </section>
 
@@ -706,6 +655,7 @@
             displayExpenses();
         }
     }
+
     function displayExpenses() {
         const output = document.getElementById("expense-tracker-output");
         const totalDisplay = document.getElementById("expense-tracker-total");
@@ -723,6 +673,7 @@
             displayTasks();
         }
     }
+
     function displayTasks() {
         const output = document.getElementById("to-do-list-output");
         output.innerHTML = toDoList.map((task, index) => {
@@ -736,33 +687,34 @@
     }
 
     function removeTask(index) {
-        if (document.getElementById(`task-${index}`).checked) {
-            toDoList.splice(index, 1);
-            displayTasks();
-        }
+        toDoList.splice(index, 1);
+        displayTasks();
     }
 
-    // Weather Application Script
-    const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
-
+    // Weather App Script
     function getWeather() {
-        const location = document.getElementById("location").value;
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`)
+        const city = document.getElementById("location").value;
+        const apiKey = 'YOUR_API_KEY';  // Replace with your OpenWeatherMap API Key
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
             .then(response => response.json())
             .then(data => {
                 const weatherResult = document.getElementById("weather-result");
                 if (data.cod === 200) {
                     weatherResult.innerHTML = `
                         <p>Weather in ${data.name}, ${data.sys.country}:</p>
-                        <p>Temperature: <span>${data.main.temp}°C</span></p>
-                        <p>Weather: <span>${data.weather[0].description}</span></p>
+                        <p><span>${data.weather[0].main}</span> - ${data.weather[0].description}</p>
+                        <p>Temperature: ${data.main.temp}°C</p>
+                        <p>Humidity: ${data.main.humidity}%</p>
+                        <p>Wind Speed: ${data.wind.speed} m/s</p>
                     `;
                 } else {
                     weatherResult.innerHTML = `<p>City not found. Please try again.</p>`;
                 }
             })
-            .catch(err => {
-                document.getElementById("weather-result").innerHTML = `<p>Error fetching weather data. Please try again.</p>`;
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
             });
     }
 </script>
