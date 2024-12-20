@@ -195,6 +195,7 @@
         <li><a href="#password-checker">Python Password Checker</a></li>
         <li><a href="#expense-tracker">Expense Tracker</a></li>
         <li><a href="#to-do-list">To-Do List App</a></li>
+        <li><a href="#weather-app">Weather App</a></li>
     </ul>
 </section>
 
@@ -231,6 +232,16 @@
     <div id="to-do-list-output"></div>
 </section>
 
+<section id="weather-app">
+    <h3>Weather App</h3>
+    <form id="weather-form">
+        <label for="city-input">Enter City:</label>
+        <input type="text" id="city-input" required>
+        <button type="button" onclick="fetchWeather()">Get Weather</button>
+    </form>
+    <div id="weather-output"></div>
+</section>
+
 <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:Yusufyounus786@icloud.com">Yusufyounus786@icloud.com</a></p>
@@ -247,57 +258,79 @@
     function checkPassword() {
         const password = document.getElementById("password-input").value;
         const output = document.getElementById("password-checker-output");
-        if (password.length >= 8) {
-            output.textContent = "Password accepted!";
+        if (password.length < 8) {
+            output.textContent = "Password is too short. It must be at least 8 characters long.";
         } else {
-            output.textContent = "Password too short!";
+            output.textContent = "Password is strong!";
         }
     }
 
     // Expense Tracker Script
-    let expenses = [];
+    let totalExpense = 0;
+
     function addExpense() {
         const name = document.getElementById("expense-name").value;
         const amount = parseFloat(document.getElementById("expense-amount").value);
-        if (name && amount > 0) {
-            expenses.push({ name, amount });
-            displayExpenses();
-        }
-    }
-    function displayExpenses() {
         const output = document.getElementById("expense-tracker-output");
-        const totalDisplay = document.getElementById("expense-tracker-total");
-        output.innerHTML = expenses.map(exp => `${exp.name}: £${exp.amount.toFixed(2)}`).join("<br>");
-        const total = expenses.reduce((sum, exp) => sum + exp.amount, 0);
-        totalDisplay.textContent = `Total: £${total.toFixed(2)}`;
+        const total = document.getElementById("expense-tracker-total");
+
+        if (!isNaN(amount)) {
+            totalExpense += amount;
+            output.innerHTML += `<p>${name}: $${amount.toFixed(2)}</p>`;
+            total.textContent = `Total Expense: $${totalExpense.toFixed(2)}`;
+        }
     }
 
     // To-Do List Script
-    const toDoList = [];
     function addTask() {
-        const taskInput = document.getElementById("task-input").value;
-        if (taskInput) {
-            toDoList.push(taskInput);
-            displayTasks();
+        const task = document.getElementById("task-input").value;
+        const output = document.getElementById("to-do-list-output");
+
+        if (task) {
+            const taskDiv = document.createElement("div");
+            taskDiv.classList.add("task");
+
+            const taskContent = document.createElement("span");
+            taskContent.textContent = task;
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.onclick = () => taskDiv.remove();
+
+            taskDiv.appendChild(taskContent);
+            taskDiv.appendChild(deleteButton);
+            output.appendChild(taskDiv);
         }
     }
-    function displayTasks() {
-        const output = document.getElementById("to-do-list-output");
-        output.innerHTML = toDoList.map((task, index) => {
-            return `
-                <div class="task">
-                    <input type="checkbox" id="task-${index}" onclick="removeTask(${index})">
-                    <label for="task-${index}">${task}</label>
-                </div>
-            `;
-        }).join("");
-    }
 
-    function removeTask(index) {
-        toDoList.splice(index, 1);
-        displayTasks();
+    // Weather App Script
+    async function fetchWeather() {
+        const city = document.getElementById("city-input").value;
+        const apiKey = "your_api_key_here"; // Replace with your actual API key
+        const output = document.getElementById("weather-output");
+
+        if (!city) {
+            output.textContent = "Please enter a city name.";
+            return;
+        }
+
+        try {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`);
+            if (!response.ok) {
+                output.textContent = "City not found. Please try again.";
+                return;
+            }
+
+            const data = await response.json();
+            output.innerHTML = `
+                <p><strong>City:</strong> ${data.name}</p>
+                <p><strong>Temperature:</strong> ${data.main.temp}°C</p>
+                <p><strong>Weather:</strong> ${data.weather[0].description}</p>
+            `;
+        } catch (error) {
+            output.textContent = "Error fetching weather data. Please try again later.";
+        }
     }
 </script>
-
 </body>
 </html>
