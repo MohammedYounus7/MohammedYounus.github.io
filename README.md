@@ -303,32 +303,41 @@
         }
     }
 
-    // Weather App Script
+       // Weather App Script
     async function fetchWeather() {
         const city = document.getElementById("city-input").value;
-        const apiKey = "681a5c4faa617eaa9e1f0b9a98ed999b"; // Replace with your actual API key
-        const output = document.getElementById("weather-output");
-
         if (!city) {
-            output.textContent = "Please enter a city name.";
+            alert("Please enter a city name.");
             return;
         }
 
-        try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`);
-            if (!response.ok) {
-                output.textContent = "City not found. Please try again.";
-                return;
-            }
+        const apiKey = "681a5c4faa617eaa9e1f0b9a98ed999b"; // Your API Key
+        const weatherDiv = document.getElementById("weather-output");
 
+        try {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+            if (!response.ok) {
+                throw new Error("City not found");
+            }
             const data = await response.json();
-            output.innerHTML = `
-                <p><strong>City:</strong> ${data.name}</p>
-                <p><strong>Temperature:</strong> ${data.main.temp}°C</p>
-                <p><strong>Weather:</strong> ${data.weather[0].description}</p>
+
+            const weatherData = {
+                temperature: data.main.temp,
+                humidity: data.main.humidity,
+                description: data.weather[0].description,
+                icon: `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
+            };
+
+            // Display weather data
+            weatherDiv.innerHTML = `
+                <p>Temperature: ${weatherData.temperature}°C</p>
+                <p>Humidity: ${weatherData.humidity}%</p>
+                <p>Description: ${weatherData.description}</p>
+                <img src="${weatherData.icon}" alt="Weather Icon">
             `;
         } catch (error) {
-            output.textContent = "Error fetching weather data. Please try again later.";
+            console.error('Error:', error);
+            weatherDiv.innerHTML = `<p>Error: ${error.message}</p>`;
         }
     }
 </script>
