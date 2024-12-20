@@ -306,7 +306,7 @@
     // Weather App Script
     async function fetchWeather() {
         const city = document.getElementById("city-input").value;
-        const apiKey = "your_api_key_here"; // Replace with your actual API key
+        const apiKey = "681a5c4faa617eaa9e1f0b9a98ed999b"; // Replace with your actual API key
         const output = document.getElementById("weather-output");
 
         if (!city) {
