@@ -68,16 +68,11 @@
             margin-bottom: 40px;
         }
 
-        section h2 {
+        section h2, section h3 {
             text-align: center; /* Centering all section headers */
             color: #2F4F4F; /* Dark Slate Blue for headers */
             font-size: 1.8rem; /* Consistent font size for all section headers */
             margin-bottom: 20px; /* Space below the heading */
-        }
-
-        section h3 {
-            color: #2F4F4F; /* Dark Slate Blue for headers */
-            margin-bottom: 20px;
         }
 
         section p {
@@ -351,4 +346,4 @@
 </script>
 
 </body>
-</html>
+</html> 
