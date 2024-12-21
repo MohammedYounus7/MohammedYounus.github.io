@@ -200,33 +200,43 @@
 <section id="projects">
     <h2>Projects</h2>
     <ul class="projects-list">
-        <li><a href="#password-checker">Python Password Checker</a></li>
-        <li><a href="#expense-tracker">Expense Tracker</a></li>
-        <li><a href="#to-do-list">To-Do List App</a></li>
-        <li><a href="#weather-app">Weather App</a></li>
+        <li>
+            <a href="#password-checker">Python Password Checker</a>
+            <p>This tool checks if your password is strong enough by looking at its length and complexity, so you can make sure your accounts are safe.</p>
+        </li>
+        <li>
+            <a href="#expense-tracker">Expense Tracker</a>
+            <p>Keep track of your spending by adding expenses and seeing the total in real-time – a simple way to manage your budget.</p>
+        </li>
+        <li>
+            <a href="#to-do-list">To-Do List App</a>
+            <p>Stay organized by adding, completing, and deleting tasks – perfect for keeping track of everything you need to do.</p>
+        </li>
+        <li>
+            <a href="#weather-app">Weather App</a>
+            <p>Get the current weather for any city – from temperature to humidity – so you can plan your day just right.</p>
+        </li>
     </ul>
 </section>
 
 <section id="password-checker">
     <h3>Python Password Checker</h3>
-    <p>This project checks the strength of a password based on length and complexity.</p>
-    <button onclick="checkPassword()">Check Password</button>
     <form id="password-form">
         <label for="password-input">Enter Password:</label>
         <input type="password" id="password-input" required>
+        <button type="button" onclick="checkPassword()">Check Password</button>
     </form>
     <div id="password-checker-output"></div>
 </section>
 
 <section id="expense-tracker">
     <h3>Expense Tracker</h3>
-    <p>Track your expenses with this simple app that allows you to add and see your costs in real-time.</p>
-    <button onclick="addExpense()">Add Expense</button>
     <form id="expense-form">
         <label for="expense-name">Expense Name:</label>
         <input type="text" id="expense-name" required>
         <label for="expense-amount">Amount:</label>
         <input type="number" id="expense-amount" required>
+        <button type="button" onclick="addExpense()">Add Expense</button>
     </form>
     <div id="expense-tracker-output"></div>
     <div id="expense-tracker-total"></div>
@@ -234,22 +244,20 @@
 
 <section id="to-do-list">
     <h3>To-Do List App</h3>
-    <p>Keep track of your tasks with this simple to-do list app that allows you to add and remove tasks.</p>
-    <button onclick="addTask()">Add Task</button>
     <form id="to-do-list-form">
         <label for="task-input">Enter Task:</label>
         <input type="text" id="task-input" required>
+        <button type="button" onclick="addTask()">Add Task</button>
     </form>
     <div id="to-do-list-output"></div>
 </section>
 
 <section id="weather-app">
     <h3>Weather App</h3>
-    <p>Get real-time weather information for your location or any city with this weather app.</p>
-    <button onclick="fetchWeather()">Get Weather</button>
     <form id="weather-form">
         <label for="city-input">Enter City:</label>
         <input type="text" id="city-input" required>
+        <button type="button" onclick="fetchWeather()">Get Weather</button>
     </form>
     <div id="weather-output"></div>
 </section>
