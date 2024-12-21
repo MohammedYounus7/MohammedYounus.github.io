@@ -110,6 +110,8 @@
             color: #00BFAE; /* Light teal color for links */
             text-decoration: none;
             font-weight: 600;
+            display: block; /* Make the link take up the full area of the list item */
+            padding: 10px;
         }
 
         .projects-list li a:hover {
@@ -201,24 +203,28 @@
     <h2>Projects</h2>
     <ul class="projects-list">
         <li>
-            <a href="#password-checker">Python Password Checker</a>
-            <br>
-            <a href="#password-checker"><button>Check Password</button></a>
+            <a href="#password-checker">
+                <h3>Python Password Checker</h3>
+                <button>Check Password</button>
+            </a>
         </li>
         <li>
-            <a href="#expense-tracker">Expense Tracker</a>
-            <br>
-            <a href="#expense-tracker"><button>Add Expense</button></a>
+            <a href="#expense-tracker">
+                <h3>Expense Tracker</h3>
+                <button>Add Expense</button>
+            </a>
         </li>
         <li>
-            <a href="#to-do-list">To-Do List App</a>
-            <br>
-            <a href="#to-do-list"><button>Add Task</button></a>
+            <a href="#to-do-list">
+                <h3>To-Do List App</h3>
+                <button>Add Task</button>
+            </a>
         </li>
         <li>
-            <a href="#weather-app">Weather App</a>
-            <br>
-            <a href="#weather-app"><button>Get Weather</button></a>
+            <a href="#weather-app">
+                <h3>Weather App</h3>
+                <button>Get Weather</button>
+            </a>
         </li>
     </ul>
 </section>
