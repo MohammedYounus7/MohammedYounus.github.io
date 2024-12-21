@@ -56,15 +56,16 @@
         }
 
         /* Section Styles */
-        section {
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 800px;
-            background: #FFFFFF; /* White background */
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-        }
+    section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background: #FFFFFF; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
 
         section h2, section h3 {
             color: #2F4F4F; /* Dark Slate Blue for headers */
