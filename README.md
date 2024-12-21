@@ -22,6 +22,7 @@
             background-color: #2F4F4F; /* Dark Slate Blue background */
             color: white;
             padding: 20px 0;
+            text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -29,7 +30,6 @@
             margin: 0;
             font-weight: 600;
             font-size: 2rem;
-            text-align: center;
         }
 
         header nav ul {
@@ -41,7 +41,7 @@
         }
 
         header nav ul li {
-            margin: 0 15px; /* Equal spacing between each list item */
+            margin: 0 15px;
         }
 
         header nav ul li a {
@@ -57,22 +57,25 @@
             color: #00BFAE; /* Light teal color on hover */
         }
 
-        /* Section Styles */
-        section {
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 800px;
-            background: #FFFFFF; /* White background */
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-        }
+     /* Section Styles */
+section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background: #FFFFFF; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
 
-        section h2, section h3 {
-            text-align: center; /* Centering all section headers */
+/* Center the "About Me" Heading */
+#about h2 {
+    text-align: center; /* Center only the "About Me" heading */
+    color: #2F4F4F; /* Dark Slate Blue for headers */
+}
+        section h3 {
             color: #2F4F4F; /* Dark Slate Blue for headers */
-            font-size: 1.8rem; /* Consistent font size for all section headers */
-            margin-bottom: 20px; /* Space below the heading */
+            margin-bottom: 20px;
         }
 
         section p {
@@ -280,8 +283,8 @@
 
         if (!isNaN(amount)) {
             totalExpense += amount;
-            output.innerHTML += `<p>${name}: $${amount.toFixed(2)}</p>`;
-            total.textContent = `Total Expense: $${totalExpense.toFixed(2)}`;
+            output.innerHTML += <p>${name}: $${amount.toFixed(2)}</p>;
+            total.textContent = Total Expense: $${totalExpense.toFixed(2)};
         }
     }
 
@@ -319,7 +322,7 @@
         const weatherDiv = document.getElementById("weather-output");
 
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+            const response = await fetch(https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric);
             if (!response.ok) {
                 throw new Error("City not found");
             }
@@ -329,16 +332,16 @@
                 temperature: data.main.temp,
                 humidity: data.main.humidity,
                 description: data.weather[0].description,
-                icon: `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
+                icon: https://openweathermap.org/img/w/${data.weather[0].icon}.png
             };
 
             // Display weather data
-            weatherDiv.innerHTML = `
+            weatherDiv.innerHTML = 
                 <p>Temperature: ${weatherData.temperature}°C</p>
                 <p>Humidity: ${weatherData.humidity}%</p>
                 <p>Description: ${weatherData.description}</p>
                 <img src="${weatherData.icon}" alt="Weather Icon">
-            `;
+            ;
         } catch (error) {
             weatherDiv.textContent = error.message;
         }
