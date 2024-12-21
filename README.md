@@ -68,7 +68,13 @@
             margin-bottom: 40px;
         }
 
-        section h2, section h3 {
+        /* Center the "About Me" Heading */
+        #about h2 {
+            text-align: center; /* Center only the "About Me" heading */
+            color: #2F4F4F; /* Dark Slate Blue for headers */
+        }
+
+        section h3 {
             color: #2F4F4F; /* Dark Slate Blue for headers */
             margin-bottom: 20px;
         }
@@ -278,8 +284,8 @@
 
         if (!isNaN(amount)) {
             totalExpense += amount;
-            output.innerHTML += <p>${name}: $${amount.toFixed(2)}</p>;
-            total.textContent = Total Expense: $${totalExpense.toFixed(2)};
+            output.innerHTML += `<p>${name}: $${amount.toFixed(2)}</p>`; // Fix template literal
+            total.textContent = `Total Expense: $${totalExpense.toFixed(2)}`; // Fix string interpolation
         }
     }
 
@@ -317,7 +323,7 @@
         const weatherDiv = document.getElementById("weather-output");
 
         try {
-            const response = await fetch(https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric);
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
             if (!response.ok) {
                 throw new Error("City not found");
             }
@@ -327,16 +333,16 @@
                 temperature: data.main.temp,
                 humidity: data.main.humidity,
                 description: data.weather[0].description,
-                icon: https://openweathermap.org/img/w/${data.weather[0].icon}.png
+                icon: `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
             };
 
             // Display weather data
-            weatherDiv.innerHTML = 
+            weatherDiv.innerHTML = `
                 <p>Temperature: ${weatherData.temperature}°C</p>
                 <p>Humidity: ${weatherData.humidity}%</p>
                 <p>Description: ${weatherData.description}</p>
                 <img src="${weatherData.icon}" alt="Weather Icon">
-            ;
+            `;
         } catch (error) {
             weatherDiv.textContent = error.message;
         }
