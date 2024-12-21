@@ -48,7 +48,7 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
-            padding: 5px 0; /* Add padding to ensure consistent height */
+            padding: 10px 0; /* Add padding to ensure consistent height */
             display: inline-block; /* Ensures padding is applied evenly */
             transition: color 0.3s ease;
         }
@@ -60,7 +60,7 @@
         /* Section Styles */
         section {
             margin: 20px auto;
-            padding: 20px;
+            padding: 10px;
             max-width: 800px;
             background: #FFFFFF; /* White background */
             border-radius: 10px;
