@@ -16,37 +16,44 @@
             padding: 0;
             scroll-behavior: smooth;
         }
+   /* Header Styles */
+header {
+    background-color: #2F4F4F; /* Dark Slate Blue background */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-       /* Header Navigation */
+/* Navigation Menu */
 header nav ul {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centers the links horizontally */
     list-style: none;
-    margin: 10px 0 0;
     padding: 0;
+    margin: 0;
 }
 
 header nav ul li {
-    margin: 0 15px;
-    display: flex; /* Ensures items are vertically aligned */
-    align-items: center; /* Vertically center the links */
+    margin: 0 15px; /* Equal horizontal spacing */
+    display: flex;
+    align-items: center; /* Vertically align the list items */
 }
 
 header nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    padding: 5px 0; /* Ensure equal padding on top and bottom */
+    padding: 5px 0; /* Vertical padding to ensure consistent height */
+    font-size: 1.1rem; /* Set font size to make it consistent */
     display: inline-block; /* Ensures padding is applied evenly */
     transition: color 0.3s ease;
-    font-size: 1rem; /* Ensure consistent font size */
 }
 
 header nav ul li a:hover {
     color: #00BFAE; /* Light teal color on hover */
 }
-
-        /* Section Styles */
+      /* Section Styles */
         section {
             margin: 20px auto;
             padding: 20px;
