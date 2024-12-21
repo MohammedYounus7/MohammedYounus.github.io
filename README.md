@@ -22,7 +22,6 @@
             background-color: #2F4F4F; /* Dark Slate Blue background */
             color: white;
             padding: 20px 0;
-            text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -30,6 +29,7 @@
             margin: 0;
             font-weight: 600;
             font-size: 2rem;
+            text-align: center;
         }
 
         header nav ul {
@@ -41,7 +41,7 @@
         }
 
         header nav ul li {
-            margin: 0 15px;
+            margin: 0 15px; /* Equal spacing between each list item */
         }
 
         header nav ul li a {
