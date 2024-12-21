@@ -200,10 +200,22 @@
 <section id="projects">
     <h2>Projects</h2>
     <ul class="projects-list">
-        <li><a href="#password-checker">Python Password Checker</a></li>
-        <li><a href="#expense-tracker">Expense Tracker</a></li>
-        <li><a href="#to-do-list">To-Do List App</a></li>
-        <li><a href="#weather-app">Weather App</a></li>
+        <li>
+            <a href="#password-checker">Python Password Checker</a>
+            <p>This tool checks if your password is strong enough by looking at its length and complexity, so you can make sure your accounts are safe.</p>
+        </li>
+        <li>
+            <a href="#expense-tracker">Expense Tracker</a>
+            <p>Keep track of your spending by adding expenses and seeing the total in real-time – a simple way to manage your budget.</p>
+        </li>
+        <li>
+            <a href="#to-do-list">To-Do List App</a>
+            <p>Stay organized by adding, completing, and deleting tasks – perfect for keeping track of everything you need to do.</p>
+        </li>
+        <li>
+            <a href="#weather-app">Weather App</a>
+            <p>Get the current weather for any city – from temperature to humidity – so you can plan your day just right.</p>
+        </li>
     </ul>
 </section>
 
