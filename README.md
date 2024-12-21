@@ -17,45 +17,34 @@
             scroll-behavior: smooth;
         }
 
-        /* Header Styles */
-        header {
-            background-color: #2F4F4F; /* Dark Slate Blue background */
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+       /* Header Navigation */
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0;
+}
 
-        header h1 {
-            margin: 0;
-            font-weight: 600;
-            font-size: 2rem;
-        }
+header nav ul li {
+    margin: 0 15px;
+    display: flex; /* Ensures items are vertically aligned */
+    align-items: center; /* Vertically center the links */
+}
 
-        header nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin: 10px 0 0;
-            padding: 0;
-        }
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0; /* Ensure equal padding on top and bottom */
+    display: inline-block; /* Ensures padding is applied evenly */
+    transition: color 0.3s ease;
+    font-size: 1rem; /* Ensure consistent font size */
+}
 
-        header nav ul li {
-            margin: 0 15px;
-        }
-
-        header nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 5px 0; /* Add padding to ensure consistent height */
-            display: inline-block; /* Ensures padding is applied evenly */
-            transition: color 0.3s ease;
-        }
-
-        header nav ul li a:hover {
-            color: #00BFAE; /* Light teal color on hover */
-        }
+header nav ul li a:hover {
+    color: #00BFAE; /* Light teal color on hover */
+}
 
         /* Section Styles */
         section {
