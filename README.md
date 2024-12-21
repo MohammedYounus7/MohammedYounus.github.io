@@ -16,44 +16,57 @@
             padding: 0;
             scroll-behavior: smooth;
         }
-        
- /* Header Styles */
-header {
-    background-color: #2F4F4F; /* Dark Slate Blue background */
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
 
-/* Navigation Menu */
-header nav ul {
-    display: flex;
-    justify-content: center; /* Centers the links horizontally */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        /* Header Styles */
+        header {
+            background-color: #2F4F4F; /* Dark Slate Blue background */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-header nav ul li {
-    margin: 0 15px; /* Equal horizontal spacing */
-    display: flex;
-    align-items: center; /* Vertically align the list items */
-}
+        header h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 2rem;
+        }
 
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 5px 0; /* Vertical padding to ensure consistent height */
-    font-size: 1.1rem; /* Set font size to make it consistent */
-    display: inline-block; /* Ensures padding is applied evenly */
-    transition: color 0.3s ease;
-}
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 10px 0 0;
+            padding: 0;
+        }
 
-header nav ul li a:hover {
-    color: #00BFAE; /* Light teal color on hover */
-}
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0; /* Add padding to ensure consistent height */
+            display: inline-block; /* Ensures padding is applied evenly */
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #00BFAE; /* Light teal color on hover */
+        }
+
+        /* Section Styles */
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background: #FFFFFF; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
 
         section h2, section h3 {
             color: #2F4F4F; /* Dark Slate Blue for headers */
@@ -265,8 +278,8 @@ header nav ul li a:hover {
 
         if (!isNaN(amount)) {
             totalExpense += amount;
-            output.innerHTML += `<p>${name}: $${amount.toFixed(2)}</p>`;
-            total.textContent = `Total Expense: $${totalExpense.toFixed(2)}`;
+            output.innerHTML += <p>${name}: $${amount.toFixed(2)}</p>;
+            total.textContent = Total Expense: $${totalExpense.toFixed(2)};
         }
     }
 
@@ -304,7 +317,7 @@ header nav ul li a:hover {
         const weatherDiv = document.getElementById("weather-output");
 
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+            const response = await fetch(https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric);
             if (!response.ok) {
                 throw new Error("City not found");
             }
@@ -314,16 +327,16 @@ header nav ul li a:hover {
                 temperature: data.main.temp,
                 humidity: data.main.humidity,
                 description: data.weather[0].description,
-                icon: `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
+                icon: https://openweathermap.org/img/w/${data.weather[0].icon}.png
             };
 
             // Display weather data
-            weatherDiv.innerHTML = `
+            weatherDiv.innerHTML = 
                 <p>Temperature: ${weatherData.temperature}°C</p>
                 <p>Humidity: ${weatherData.humidity}%</p>
                 <p>Description: ${weatherData.description}</p>
                 <img src="${weatherData.icon}" alt="Weather Icon">
-            `;
+            ;
         } catch (error) {
             weatherDiv.textContent = error.message;
         }
