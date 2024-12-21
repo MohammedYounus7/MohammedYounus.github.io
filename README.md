@@ -208,25 +208,25 @@
             <a href="#password-checker">
                 <h3>Python Password Checker</h3>
             </a>
-            <button onclick="location.href='#password-checker'">Check Password</button>
+            <button onclick="location.href='#password-checker'">Go to Project</button>
         </li>
         <li>
             <a href="#expense-tracker">
                 <h3>Expense Tracker</h3>
             </a>
-            <button onclick="location.href='#expense-tracker'">Add Expense</button>
+            <button onclick="location.href='#expense-tracker'">Go to Project</button>
         </li>
         <li>
             <a href="#to-do-list">
                 <h3>To-Do List App</h3>
             </a>
-            <button onclick="location.href='#to-do-list'">Add Task</button>
+            <button onclick="location.href='#to-do-list'">Go to Project</button>
         </li>
         <li>
             <a href="#weather-app">
                 <h3>Weather App</h3>
             </a>
-            <button onclick="location.href='#weather-app'">Get Weather</button>
+            <button onclick="location.href='#weather-app'">Go to Project</button>
         </li>
     </ul>
 </section>
