@@ -48,7 +48,7 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
-            padding: 10px 0; /* Add padding to ensure consistent height */
+            padding: 5px 0; /* Add padding to ensure consistent height */
             display: inline-block; /* Ensures padding is applied evenly */
             transition: color 0.3s ease;
         }
@@ -58,32 +58,15 @@
         }
 
         /* Section Styles */
-section {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 800px;
-    background: #FFFFFF; /* White background */
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-    text-align: center; /* Center text in the section */
-}
-
-/* Center the "About Me" section */
-#about {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    min-height: 80vh; /* Ensure it takes enough space vertically */
-    flex-direction: column; /* Stack elements vertically */
-}
-
-/* Text styling inside "About Me" */
-#about p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: center; /* Ensure text is centered inside the paragraph */
-}
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background: #FFFFFF; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
 
         section h2, section h3 {
             color: #2F4F4F; /* Dark Slate Blue for headers */
