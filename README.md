@@ -312,8 +312,8 @@
 
         if (!isNaN(amount)) {
             totalExpense += amount;
-            output.innerHTML += `<p>${name}: $${amount.toFixed(2)}</p>`; // Fix template literal
-            total.textContent = `Total Expense: $${totalExpense.toFixed(2)}`; // Fix string interpolation
+            output.innerHTML += `<p>${name}: $${amount.toFixed(2)}</p>`;
+            total.textContent = `Total Expense: $${totalExpense.toFixed(2)}`;
         }
     }
 
@@ -364,7 +364,6 @@
                 icon: `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
             };
 
-            // Display weather data
             weatherDiv.innerHTML = `
                 <p>Temperature: ${weatherData.temperature}°C</p>
                 <p>Humidity: ${weatherData.humidity}%</p>
