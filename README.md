@@ -16,7 +16,8 @@
             padding: 0;
             scroll-behavior: smooth;
         }
-   /* Header Styles */
+        
+ /* Header Styles */
 header {
     background-color: #2F4F4F; /* Dark Slate Blue background */
     color: white;
@@ -28,8 +29,7 @@ header {
 /* Navigation Menu */
 header nav ul {
     display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
+    justify-content: center; /* Centers the links horizontally */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -49,12 +49,12 @@ header nav ul li a {
     font-size: 1.1rem; /* Set font size to make it consistent */
     display: inline-block; /* Ensures padding is applied evenly */
     transition: color 0.3s ease;
-    line-height: 1.5; /* Ensures the height is consistent for text */
 }
 
 header nav ul li a:hover {
     color: #00BFAE; /* Light teal color on hover */
 }
+
         section h2, section h3 {
             color: #2F4F4F; /* Dark Slate Blue for headers */
             margin-bottom: 20px;
