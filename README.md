@@ -57,18 +57,23 @@
             color: #00BFAE; /* Light teal color on hover */
         }
 
-        /* Section Styles */
-        section {
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 800px;
-            background: #FFFFFF; /* White background */
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-        }
+     /* Section Styles */
+section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background: #FFFFFF; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
 
-        section h2, section h3 {
+/* Center the "About Me" Heading */
+#about h2 {
+    text-align: center; /* Center only the "About Me" heading */
+    color: #2F4F4F; /* Dark Slate Blue for headers */
+}
+        section h3 {
             color: #2F4F4F; /* Dark Slate Blue for headers */
             margin-bottom: 20px;
         }
