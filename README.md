@@ -128,6 +128,8 @@
             cursor: pointer;
             font-weight: 500;
             transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-top: 10px;
         }
 
         button:hover {
@@ -205,26 +207,26 @@
         <li>
             <a href="#password-checker">
                 <h3>Python Password Checker</h3>
-                <button>Check Password</button>
             </a>
+            <button onclick="location.href='#password-checker'">Check Password</button>
         </li>
         <li>
             <a href="#expense-tracker">
                 <h3>Expense Tracker</h3>
-                <button>Add Expense</button>
             </a>
+            <button onclick="location.href='#expense-tracker'">Add Expense</button>
         </li>
         <li>
             <a href="#to-do-list">
                 <h3>To-Do List App</h3>
-                <button>Add Task</button>
             </a>
+            <button onclick="location.href='#to-do-list'">Add Task</button>
         </li>
         <li>
             <a href="#weather-app">
                 <h3>Weather App</h3>
-                <button>Get Weather</button>
             </a>
+            <button onclick="location.href='#weather-app'">Get Weather</button>
         </li>
     </ul>
 </section>
