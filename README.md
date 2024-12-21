@@ -48,6 +48,8 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
+            padding: 5px 0; /* Add padding to ensure consistent height */
+            display: inline-block; /* Ensures padding is applied evenly */
             transition: color 0.3s ease;
         }
 
@@ -64,11 +66,6 @@
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
-        }
-
-        /* Specific Styles for About Section */
-        #about {
-            text-align: center; /* Centers the text inside */
         }
 
         section h2, section h3 {
@@ -308,7 +305,7 @@
         }
     }
 
-       // Weather App Script
+    // Weather App Script
     async function fetchWeather() {
         const city = document.getElementById("city-input").value;
         if (!city) {
