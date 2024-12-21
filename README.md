@@ -28,7 +28,8 @@ header {
 /* Navigation Menu */
 header nav ul {
     display: flex;
-    justify-content: center; /* Centers the links horizontally */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -48,22 +49,12 @@ header nav ul li a {
     font-size: 1.1rem; /* Set font size to make it consistent */
     display: inline-block; /* Ensures padding is applied evenly */
     transition: color 0.3s ease;
+    line-height: 1.5; /* Ensures the height is consistent for text */
 }
 
 header nav ul li a:hover {
     color: #00BFAE; /* Light teal color on hover */
 }
-      /* Section Styles */
-        section {
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 800px;
-            background: #FFFFFF; /* White background */
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-        }
-
         section h2, section h3 {
             color: #2F4F4F; /* Dark Slate Blue for headers */
             margin-bottom: 20px;
